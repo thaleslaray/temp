@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA no Dia a Dia - Material Exclusivo Hotmart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6600;
+            --secondary: #000000;
+            --accent: #ffffff;
+            --danger: #ff0000;
+            --dark: #000000;
+            --light: #ffffff;
+            --gray: #808080;
+            --light-gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--accent);
+            color: var(--secondary);
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--accent);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 900px;
+            padding: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            letter-spacing: -0.02em;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 0;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hotmart-logo {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.5rem 1.5rem;
+        }
+
+        /* Seções */
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            text-align: left;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        /* Cards de dicas */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tip-card {
+            background: var(--accent);
+            border: 1px solid var(--light-gray);
+            border-radius: 0;
+            padding: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .tip-card:hover {
+            border-color: var(--primary);
+        }
+
+        .tip-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 0;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .tip-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--secondary);
+        }
+
+        .tip-content {
+            color: var(--gray);
+            line-height: 1.4;
+            font-size: 0.8rem;
+        }
+
+        /* Cupons */
+        .coupon-section {
+            background: var(--light-gray);
+            border-radius: 0;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .coupon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .coupon-card {
+            background: var(--accent);
+            border: 1px solid var(--gray);
+            border-radius: 0;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .coupon-card:hover {
+            border-color: var(--primary);
+        }
+
+        .coupon-code {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+            letter-spacing: 1px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Code blocks */
+        .code-block {
+            background: var(--light-gray);
+            border: 1px solid var(--gray);
+            border-radius: 0;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            position: relative;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 6px 12px;
+            background: var(--primary);
+            border: none;
+            border-radius: 0;
+            color: var(--accent);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .copy-button:hover {
+            background: var(--secondary);
+        }
+
+        .copy-button.copied {
+            background: var(--danger);
+        }
+
+        /* Expandable sections */
+        .expandable-section {
+            margin: 1.5rem 0;
+            border: 1px solid var(--light-gray);
+        }
+
+        .expandable-header {
+            background: var(--accent);
+            border: none;
+            border-bottom: 1px solid var(--light-gray);
+            border-radius: 0;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .expandable-header:hover {
+            background: var(--light-gray);
+        }
+
+        .expandable-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--secondary);
+        }
+
+        .expandable-header p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .toggle-icon {
+            font-size: 1rem;
+            transition: transform 0.2s ease;
+            color: var(--primary);
+        }
+
+        .expandable-header.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--accent);
+        }
+
+        .expandable-content.active {
+            max-height: 10000px;
+        }
+
+        .expandable-inner {
+            padding: 1.5rem;
+        }
+
+        /* Instructions box */
+        .instructions {
+            background: var(--light-gray);
+            border: 1px solid var(--gray);
+            border-radius: 0;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .instructions h4 {
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .instructions ul, .instructions ol {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .instructions li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .instructions li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .instructions ol li::before {
+            content: counter(item);
+            counter-increment: item;
+        }
+
+        .instructions ol {
+            counter-reset: item;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--accent);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin: 0.25rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 3rem;
+            background: var(--light-gray);
+        }
+
+        .footer-message {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        /* Speaker Section */
+        .speaker-section {
+            background: var(--light-gray);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            border-radius: 0;
+        }
+
+        .speaker-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .speaker-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        .speaker-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .speaker-info .title {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .speaker-links {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .speaker-link {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: var(--secondary);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .speaker-link:hover {
+            background: var(--primary);
+        }
+
+        /* Speaker Section */
+        .speaker-section {
+            background: var(--light-gray);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            border-radius: 0;
+        }
+
+        .speaker-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .speaker-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        .speaker-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .speaker-info .title {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .speaker-links {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .speaker-link {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: var(--secondary);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .speaker-link:hover {
+            background: var(--primary);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .coupon-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .speaker-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .speaker-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <img src="hotmart.svg" alt="Hotmart" class="hotmart-logo">
+                🚀 Material Exclusivo Hotmart
+            </div>
+            <h1>IA no Dia a Dia</h1>
+            <p class="subtitle">Transforme sua produtividade e resultados com Inteligência Artificial</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Speaker Section -->
+        <section class="speaker-section">
+            <div class="speaker-content">
+                <img src="profile.jpg" alt="Thales Laray" class="speaker-photo">
+                <div class="speaker-info">
+                    <h3>Thales Laray</h3>
+                    <p class="title">Especialista em Automação e IA</p>
+                    <div class="speaker-links">
+                        <a href="https://www.instagram.com/thaleslaray" target="_blank" class="speaker-link">@thaleslaray</a>
+                        <a href="https://www.escoladeautomacao.com.br/" target="_blank" class="speaker-link">Site Oficial</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dicas Section -->
+        <section class="section">
+            <h2 class="section-title">6 Dicas Poderosas de IA</h2>
+            
+            <div class="tips-grid">
+                <!-- Dica 1 -->
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <h3 class="tip-title">Use IA no Dia a Dia</h3>
+                    <p class="tip-content">
+                        Claude, ChatGPT e Gemini são as melhores opções. Integre a IA em cada aspecto da sua vida profissional e pessoal. A chave é a consistência e a prática diária.
+                    </p>
+                </div>
+
+                <!-- Dica 2 -->
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <h3 class="tip-title">Prompt Criador de Prompts</h3>
+                    <p class="tip-content">
+                        Travou em algo? Use o Assistente Construtor de Prompts para destravar qualquer situação. Uma ferramenta poderosa para otimizar suas interações com IA.
+                    </p>
+                </div>
+
+                <!-- Dica 3 -->
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <h3 class="tip-title">Automações com ManyChat</h3>
+                    <p class="tip-content">
+                        Crie automações extremamente simples usando a Etapa de IA da ManyChat. Automatize conversas e processos sem complicação.
+                    </p>
+                </div>
+
+                <!-- Dica 4 -->
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <h3 class="tip-title">Agente de Vendas com GPTMaker</h3>
+                    <p class="tip-content">
+                        Crie agentes de vendas inteligentes usando GPTMaker.ai. Use o metaprompt SPIN Selling para resultados extraordinários.
+                    </p>
+                </div>
+
+                <!-- Dica 5 -->
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <h3 class="tip-title">Node Hotmart para n8n</h3>
+                    <p class="tip-content">
+                        Automatize sua operação Hotmart com o node customizado para n8n. Integre vendas, webhooks e processos em minutos.
+                    </p>
+                </div>
+
+                <!-- Dica 6 -->
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <h3 class="tip-title">Qualquer Pessoa Pode</h3>
+                    <p class="tip-content">
+                        Criar automações e usar IA não é privilégio de programadores. É só querer e começar. O futuro é de quem age hoje!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cupons Section -->
+        <section class="coupon-section">
+            <h2 class="section-title">🎁 Cupons Exclusivos</h2>
+            
+            <div class="coupon-grid">
+                <!-- Cupom ManyChat -->
+                <div class="coupon-card">
+                    <h3>ManyChat PRO</h3>
+                    <p>30 dias grátis para novas contas</p>
+                    <div class="coupon-code">thales</div>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Válido até 15/06/2025</p>
+                </div>
+
+                <!-- Cupom GPTMaker -->
+                <div class="coupon-card">
+                    <h3>GPTMaker.ai</h3>
+                    <p>Desconto especial na criação de agentes</p>
+                    <div class="coupon-code">THALESHOTMART</div>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Válido até 15/06/2025</p>
+                </div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">--</span>
+                    <span class="countdown-label">Dias</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">--</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">--</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">--</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos Section -->
+        <section class="section">
+            <h2 class="section-title">📚 Recursos Completos</h2>
+            
+            <!-- Prompt Builder -->
+            <div class="expandable-section">
+                <div class="expandable-header" onclick="toggleSection('prompt-builder')">
+                    <h3>
+                        🧠 Assistente Construtor de Prompts para Claude
+                        <span class="toggle-icon">▼</span>
+                    </h3>
+                    <p>Um assistente especializado em criar prompts otimizados através de um processo guiado</p>
+                </div>
+                <div class="expandable-content" id="prompt-builder-content">
+                    <div class="expandable-inner">
+                        <div class="instructions">
+                            <h4>📌 Como usar:</h4>
+                            <ul>
+                                <li>Copie o prompt completo abaixo</li>
+                                <li>Cole em uma nova conversa com Claude/ChatGPT</li>
+                                <li>Siga o processo guiado de perguntas</li>
+                                <li>Receba um prompt otimizado em formato markdown</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-block">
+                            <button class="copy-button" onclick="copyToClipboard('prompt-builder-code')">Copiar</button>
+                            <pre id="prompt-builder-code">## 🧠 Assistente Construtor de Prompts para Claude
+
+### Papel
+Você é um **Assistente de Engenharia de Prompts** especializado em criar prompts otimizados para Claude da Anthropic. Seu trabalho é ajudar o usuário a criar um prompt completo e bem estruturado usando um processo de entrevista guiado, passo a passo. Cumprimente o usuário com: **"Olá! 👋"** para estabelecer um tom caloroso e amigável.
+
+Você deve pausar e refletir após cada seção para garantir completude e qualidade, aproveitando suas capacidades de raciocínio. Se necessário, use suas ferramentas de pesquisa quando o usuário fornecer nomes de empresas ou produtos mas poucos detalhes.
+
+Além disso, conforme novas informações são coletadas durante o processo, você deve pausar e refletir se alguma seção anterior poderia se beneficiar de revisão. Se sim, educadamente ofereça ao usuário a chance de voltar e atualizar essas seções.
+
+### Objetivo
+Ajudar o usuário a construir um prompt final otimizado para Claude usando as seguintes seções estruturadas:
+- Papel e Contexto
+- Objetivos e Responsabilidades
+- Conhecimento e Domínio
+- Ferramentas e Capacidades do Claude
+- Formato de Entrada e Processamento
+- Instruções Detalhadas
+- Exemplos Práticos
+- Formato de Saída
+- Diretrizes e Limitações
+- Técnicas Avançadas de Prompting
+
+O resultado final deve ser entregue em **formato markdown** usando artifacts, pronto para ser usado como prompt otimizado para Claude.
+
+### 🧩 Fluxo da Estrutura do Prompt
+Você completará cada seção através de micro-passos conversacionais. Faça uma ou duas perguntas por vez para manter a interação natural e fácil de seguir.
+
+Após cada seção:
+1. **Reflita** conscientemente sobre a qualidade e completude da seção
+2. Pergunte se o usuário gostaria de revisar
+3. Passe para a próxima seção uma vez finalizada
+
+Conforme novas informações são descobertas durante a conversa, pergunte-se: _"Isso afeta como as seções anteriores foram enquadradas?"_ Se sim, sugira revisitar essas seções com um resumo rápido e dê ao usuário a chance de atualizá-las.
+
+No final, gere uma saída de prompt final **em formato markdown usando artifacts** pronto para uso otimizado no Claude.
+
+---
+
+### 📝 Prompts das Seções
+
+#### 1. Papel e Contexto
+Comece dizendo:
+- "Vamos começar definindo claramente o papel e contexto do Claude."
+
+Pergunte um de cada vez:
+- "Que papel específico você quer que o Claude assuma? (ex: consultor especializado, assistente de pesquisa, analista técnico)"
+- "Em que contexto ou ambiente o Claude estará operando?"
+- "Que tipo de interações ou solicitações o Claude receberá?"
+- "Qual é o nível de expertise esperado? (ex: iniciante, intermediário, expert)"
+
+**Reflita**: O papel está bem definido e o contexto fornece situação clara para o Claude operar?
+
+---
+
+#### 2. Objetivos e Responsabilidades
+Diga:
+- "Agora vamos esclarecer os objetivos principais e responsabilidades."
+
+Pergunte:
+- "Qual é o objetivo principal que o Claude deve alcançar?"
+- "Quais são as responsabilidades secundárias importantes?"
+- "Como o sucesso será medido ou identificado?"
+- "Há prioridades específicas entre diferentes objetivos?"
+
+**Reflita**: Os objetivos estão claros, mensuráveis e bem priorizados?
+
+---
+
+#### 3. Conhecimento e Domínio
+Pergunte:
+- "Que área de conhecimento ou domínio específico é relevante?"
+- "Há terminologias, conceitos ou frameworks específicos que devem ser usados?"
+- "Que nível de profundidade técnica é apropriado?"
+- "Há informações específicas sobre sua empresa/contexto que devo incluir?"
+
+**Reflita**: O escopo de conhecimento está bem definido e apropriado para os objetivos?
+
+---
+
+#### 4. Ferramentas e Capacidades do Claude
+Pergunte:
+- "O Claude precisará usar alguma ferramenta específica? (ex: análise de código, pesquisa web, criação de artefatos)"
+- "Você espera respostas longas que se beneficiariam de artifacts?"
+- "O Claude precisará fazer cálculos complexos ou análise de dados?"
+- "Há necessidade de pesquisa em tempo real ou verificação de informações?"
+
+**Reflita**: As capacidades selecionadas do Claude são adequadas para os objetivos?
+
+---
+
+#### 5. Formato de Entrada e Processamento
+Pergunte:
+- "Que tipo de informações ou dados serão fornecidos ao Claude?"
+- "Em que formato essas informações virão? (ex: texto livre, documentos, dados estruturados)"
+- "Há padrões específicos ou estruturas que o Claude deve reconhecer?"
+- "Como o Claude deve processar informações ambíguas ou incompletas?"
+
+**Reflita**: O processamento de entrada está bem estruturado e robusto?
+
+---
+
+#### 6. Instruções Detalhadas
+Pergunte:
+- "Qual é o processo passo-a-passo que o Claude deve seguir?"
+- "Há decisões críticas ou pontos de ramificação no processo?"
+- "Como o Claude deve lidar com casos especiais ou exceções?"
+- "Que abordagem metodológica deve ser usada? (ex: análise sistemática, pensamento crítico)"
+
+**Reflita**: As instruções são claras, completas e logicamente estruturadas?
+
+---
+
+#### 7. Exemplos Práticos
+Pergunte:
+- "Você pode fornecer um exemplo real ou realístico de uso?"
+- "Que entrada típica o Claude receberia?"
+- "Como seria a resposta ideal para esse exemplo?"
+- "Há variações importantes do caso de uso principal?"
+
+**Reflita**: Os exemplos ilustram bem a aplicação prática e cobrem variações importantes?
+
+---
+
+#### 8. Formato de Saída
+Pergunte:
+- "Como o Claude deve estruturar suas respostas?"
+- "Há seções específicas que devem sempre estar presentes?"
+- "Você prefere formato de texto, markdown estruturado, ou artifacts para conteúdo longo?"
+- "A saída será usada por outros sistemas ou apenas para leitura humana?"
+
+**Reflita**: O formato de saída é claro, estruturado e adequado ao uso pretendido?
+
+---
+
+#### 9. Diretrizes e Limitações
+Pergunte:
+- "Há fronteiras claras que o Claude nunca deve ultrapassar?"
+- "Quando o Claude deve admitir incerteza ou limitações?"
+- "Há sensibilidades específicas ou tópicos que requerem cuidado especial?"
+- "Como o Claude deve lidar com solicitações fora do escopo?"
+
+**Reflita**: As diretrizes criam fronteiras apropriadas mantendo utilidade?
+
+---
+
+#### 10. Técnicas Avançadas de Prompting
+Pergunte:
+- "O Claude deve usar técnicas específicas como thinking step-by-step, análise multi-perspectiva?"
+- "Há necessidade de verificação ou validação de raciocínio?"
+- "O Claude deve considerar múltiplas abordagens antes de responder?"
+- "Há benefício em usar structured thinking ou chain-of-thought?"
+
+**Reflita**: As técnicas selecionadas melhoram a qualidade e confiabilidade das respostas?
+
+---
+
+### ✅ Lista de Verificação de Confirmação Final
+Antes de gerar o prompt final:
+Pergunte:
+- "O prompt resultante atende completamente aos seus objetivos?"
+- "O tom e abordagem se alinham com suas expectativas?"
+- "Há casos especiais ou nuances que ainda não cobrimos?"
+- "A estrutura aproveitará bem as capacidades específicas do Claude?"
+
+**Reflita**: Faça uma revisão final de qualidade geral, considerando otimizações específicas para Claude. Se alguma informação descoberta tardiamente conflita com ou melhora seções anteriores, sugira revisões primeiro.
+
+---
+
+### 📤 Saída Final
+Retorne o prompt estruturado completo usando **artifacts** em formato markdown.</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ManyChat IA Step -->
+            <div class="expandable-section">
+                <div class="expandable-header" onclick="toggleSection('manychat')">
+                    <h3>
+                        🤖 Etapa de IA da ManyChat
+                        <span class="toggle-icon">▼</span>
+                    </h3>
+                    <p>Crie automações extremamente simples com inteligência artificial integrada</p>
+                </div>
+                <div class="expandable-content" id="manychat-content">
+                    <div class="expandable-inner">
+                        <div class="instructions" style="background: rgba(245, 158, 11, 0.1); border-color: #f59e0b;">
+                            <h4 style="color: #f59e0b;">🎁 Benefício da Palestra:</h4>
+                            <ul>
+                                <li><strong>30 dias GRÁTIS</strong> da ManyChat PRO</li>
+                                <li>Apenas para <strong>novas contas</strong></li>
+                                <li>Cupom: <strong>thales</strong></li>
+                                <li>Válido até: <strong>15/06/2025</strong></li>
+                            </ul>
+                            <div style="text-align: left; margin-top: 1rem;">
+                                <a href="http://automacao.ai/manychat" target="_blank" style="display: inline-block; background: var(--secondary); color: white; padding: 8px 16px; border-radius: 0; text-decoration: none; font-size: 14px; font-weight: 500; margin-right: 8px; text-transform: uppercase; letter-spacing: 0.05em;">Cadastrar</a>
+                                <a href="https://help.manychat.com/hc/pt-br/articles/14281187288860-AI-Step-na-Manychat" target="_blank" style="display: inline-block; background: transparent; color: var(--secondary); border: 1px solid var(--secondary); padding: 8px 16px; border-radius: 0; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Documentação</a>
+                            </div>
+                        </div>
+
+                        <div class="instructions">
+                            <h4>📌 Como configurar o AI Step:</h4>
+                            <ul>
+                                <li><strong>Etapa 1:</strong> Navegue até Automações → Construtor de fluxos</li>
+                                <li><strong>Etapa 2:</strong> Adicione o AI Step no menu de opções</li>
+                                <li><strong>Etapa 3:</strong> Defina um objetivo claro (ex: "Determinar necessidades do usuário")</li>
+                                <li><strong>Etapa 4:</strong> Especifique o contexto (infos da empresa, produtos, FAQs, tom de voz)</li>
+                                <li><strong>Etapa 5:</strong> Clique em "Gerar" para criar o AI Step</li>
+                                <li><strong>Etapa 6:</strong> Configure tarefas e campos personalizados</li>
+                                <li><strong>Etapa 7:</strong> Teste com "Salvar e iniciar chat"</li>
+                                <li><strong>Etapa 8:</strong> Crie gatilho e coloque no ar</li>
+                            </ul>
+                        </div>
+
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                            <h4 style="color: var(--primary); margin-bottom: 1rem;">🤖 O que é o AI Step?</h4>
+                            <p style="color: var(--secondary); margin-bottom: 1rem; line-height: 1.6;">
+                                O AI Step da ManyChat é um recurso que usa inteligência artificial para <strong>gerenciar interações complexas do usuário</strong>. Ele opera com base em um script ou conjunto de instruções para atingir objetivos específicos, como <strong>coletar informações ou fornecer respostas personalizadas</strong>.
+                            </p>
+
+                            <h4 style="color: var(--primary); margin-bottom: 0.5rem;">📱 Canais suportados:</h4>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1rem;">
+                                <div style="background: rgba(255, 102, 0, 0.1); padding: 0.5rem; border-radius: 4px; text-align: center;">
+                                    <strong>Facebook Messenger</strong>
+                                </div>
+                                <div style="background: rgba(255, 102, 0, 0.1); padding: 0.5rem; border-radius: 4px; text-align: center;">
+                                    <strong>Instagram</strong>
+                                </div>
+                                <div style="background: rgba(255, 102, 0, 0.1); padding: 0.5rem; border-radius: 4px; text-align: center;">
+                                    <strong>WhatsApp</strong>
+                                </div>
+                                <div style="background: rgba(255, 102, 0, 0.1); padding: 0.5rem; border-radius: 4px; text-align: center;">
+                                    <strong>Telegram</strong>
+                                </div>
+                            </div>
+
+                            <div class="code-block">
+                                <pre>// Estrutura do AI Step
+1. OBJETIVO: "Determinar as necessidades do usuário"
+2. CONTEXTO: Informações da empresa + produtos + FAQs + tom
+3. TAREFAS: Definidas automaticamente + personalizadas
+4. CAMPOS: Salvar respostas em campos do sistema</pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metaprompt Vendas -->
+            <div class="expandable-section">
+                <div class="expandable-header" onclick="toggleSection('metaprompt')">
+                    <h3>
+                        💰 Metaprompt SPIN Selling para GPTMaker.ai
+                        <span class="toggle-icon">▼</span>
+                    </h3>
+                    <p>Template completo para criar agentes de vendas usando metodologia SPIN</p>
+                </div>
+                <div class="expandable-content" id="metaprompt-content">
+                    <div class="expandable-inner">
+                        <div class="instructions" style="background: rgba(245, 158, 11, 0.1); border-color: #f59e0b;">
+                            <h4 style="color: #f59e0b;">🎁 Benefício da Palestra:</h4>
+                            <ul>
+                                <li><strong>100% de desconto por 1 mês</strong> no GPTMaker.ai</li>
+                                <li>Cupom: <strong>THALESHOTMART</strong></li>
+                                <li>Válido até: <strong>15/06/2025</strong></li>
+                                <li><strong>Válido apenas</strong> para o Plano Basic</li>
+                            </ul>
+                            
+                            <h4 style="color: #f59e0b; margin-top: 1.5rem;">📋 Como aplicar o cupom:</h4>
+                            <ol style="color: #cbd5e1; padding-left: 20px;">
+                                <li>Cadastre-se no botão abaixo</li>
+                                <li>Vá em <strong>Faturamento</strong></li>
+                                <li>Clique em <strong>Contratar Plano Basic</strong></li>
+                                <li>Clique no botão <strong>"Adicionar código promocional"</strong></li>
+                                <li>Digite <strong>THALESHOTMART</strong></li>
+                                <li>O valor vai de R$ 87,00 para <strong>R$ 0,00</strong></li>
+                            </ol>
+                            
+                            <div style="text-align: left; margin-top: 1rem;">
+                                <a href="https://automacao.ai/gptmaker" target="_blank" style="display: inline-block; background: var(--secondary); color: white; padding: 8px 16px; border-radius: 0; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">Cadastrar no GPTMaker</a>
+                            </div>
+                        </div>
+
+                        <div class="instructions">
+                            <h4>📌 Como usar no GPTMaker.ai:</h4>
+                            <ul>
+                                <li>Copie o metaprompt completo abaixo</li>
+                                <li>Cole em uma nova conversa com Claude/ChatGPT</li>
+                                <li>Receba um prompt otimizado em formato markdown</li>
+                                <li>Use esse prompt final no GPTMaker.ai para criar seu agente</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-block">
+                            <button class="copy-button" onclick="copyToClipboard('metaprompt-code')">Copiar</button>
+                            <pre id="metaprompt-code">By Thales Laray - Escola da Automação
+https://escoladeautomacao.com.br/
+
+- Analise a página xxxxxxxxxxxxx
+- Crie um agente de vendas com base no prompt abaixo
+- O resultado não pode ser maior que 3000 caracteres
+
+Objetivo:
+Você é um consultor especializado em [ÁREA/PRODUTO] focado em resultados. Use SPIN Selling com respostas CURTAS (máximo 3 linhas) para identificar dores e guiar para a [OBJETIVO FINAL - ex: compra/contratação].
+Etapas SPIN (Avance sempre conforme respostas):
+1. Situação (Exploratória):
+- "[PERGUNTA SOBRE CONTEXTO ATUAL]"
+- "[PERGUNTA SOBRE MOMENTO PRESENTE]"
+- "[PERGUNTA SOBRE OBJETIVOS]"
+2. Problema (Diagnóstico):
+- "[PERGUNTA SOBRE DESAFIOS ESPECÍFICOS]"
+- "[PERGUNTA SOBRE LIMITAÇÕES]"
+- "[PERGUNTA SOBRE GAPS]"
+3. Implicação (Amplie dores):
+- "[PERGUNTA SOBRE IMPACTO NO CURTO PRAZO]"
+- "[PERGUNTA SOBRE CONSEQUÊNCIAS FUTURAS]"
+- "[PERGUNTA SOBRE CUSTOS/PERDAS]"
+4. Necessidade-Solução (Fechamento):
+- Conecte dores à [SOLUÇÃO/PRODUTO] específica
+- Destaque [PRINCIPAIS BENEFÍCIOS]
+- Oriente sobre [PRÓXIMOS PASSOS]
+Objeções principais (Converta em valor):
+1. "Não é para mim":
+- Volte para Problema
+- Explore consequências
+- Destaque [DIFERENCIAIS DO PRODUTO/SERVIÇO]
+2. Dinheiro:
+- Volte para Implicação 
+- Compare custo x benefício
+- Apresente [OPÇÕES DE PAGAMENTO]
+3. Tempo:
+- Explore prioridades
+- Demonstre [BENEFÍCIOS DE PRATICIDADE]
+- Destaque [FORMATO/PROCESSO]
+Informações essenciais:
+- [CARACTERÍSTICA 1]
+- [CARACTERÍSTICA 2]
+- [PREÇOS E CONDIÇÕES]
+- [PROCESSO DE COMPRA/CONTRATAÇÃO]
+Regras:
+- Mantenha respostas curtas e objetivas
+- Foque em guiar para [OBJETIVO FINAL]
+- Esclareça dúvidas no mesmo canal
+- Nunca sugira reuniões desnecessárias
+- Todo contato deve visar conversão
+Instruções de uso:
+1. Substitua todos os campos entre [COLCHETES] com informações específicas do seu produto/serviço
+2. Personalize as perguntas de cada etapa SPIN para seu contexto
+3. Adapte as objeções principais para seu mercado
+4. Inclua informações essenciais relevantes para sua oferta
+5. Mantenha a estrutura de respostas curtas e objetivas
+Exemplo de personalização:
+- Para vendas de software
+- Para serviços de consultoria
+- Para produtos físicos
+- Para serviços educacionais
+- Para serviços financeiros
+Lembre-se: O objetivo é manter a metodologia SPIN Selling enquanto adapta o conteúdo para seu negócio específico.
+
+Utilize os exemplos abaixo para se inspirar:
+
+Exemplo 1:
+
+Com base na página do desafio, aqui está a estrutura do agente de vendas usando SPIN Selling:
+Objetivo: Você é um consultor especializado em automação e inteligência artificial, focado em transformar leads em clientes para o Desafio Profissão Gestor de Automação.
+Etapas SPIN:
+    1.    Situação (Exploratória):
+    •    "Atualmente, você utiliza automação em seu negócio?"
+    •    "Quais desafios enfrenta ao tentar aumentar seu faturamento?"
+    •    "Qual é seu objetivo com automações e IA?"
+    2.    Problema (Diagnóstico):
+    •    "Você sente que seu negócio está estagnado?"
+    •    "Quais limitações vê no uso atual de tecnologia?"
+    •    "Existem processos manuais que poderiam ser automatizados?"
+    3.    Implicação (Amplie dores):
+    •    "Como a falta de automação afeta sua produtividade?"
+    •    "Quais oportunidades perde ao não usar IA?"
+    •    "Quais são os custos por não otimizar esses processos?"
+    4.    Necessidade-Solução (Fechamento):
+    •    "Este desafio ensina a criar agentes de IA, ampliando suas soluções."
+    •    "Você aprenderá estratégias que dobram o faturamento."
+    •    "Garanta sua vaga e comece a vender com automação em apenas 5 dias."
+Objeções principais:
+    •    "Não é para mim": Explore impacto futuro; destaque que o mercado está migrando para IA.
+    •    Dinheiro: Mostre o retorno de investimento; mencione o valor promocional.
+    •    Tempo: Lembre que as aulas são de 60 minutos; pratique já após o evento.
+Informações essenciais:
+    •    Conteúdo prático e direto.
+    •    Aulas ao vivo no Zoom, de 4 a 8 de novembro.
+    •    Valor promocional de R$49,00.
+Este agente guia a conversa para converter o interesse em participação no desafio.
+
+Exemplo 2:
+
+Você é um consultor educacional FGV focado em resultados. Use SPIN Selling com respostas CURTAS (máximo 3 linhas) para identificar dores e guiar para a matrícula online. 
+
+Etapas SPIN (Avance sempre):
+1. Situação (Exploratória):
+- "Em qual área atua hoje?"
+- "Como está sua carreira?"
+- "Quais seus objetivos?"
+
+2. Problema (Diagnóstico):
+- "Que desafios enfrenta?"
+- "O que tem limitado seu crescimento?"
+- "Que competências faltam?"
+
+3. Implicação (Amplie dores):
+- "Como isso afeta sua carreira?"
+- "Qual impacto no longo prazo?"
+- "Quanto custa essa situação?"
+
+4. Necessidade-Solução (Fechamento):
+- Conecte dores ao curso específico
+- Destaque benefícios diretos
+- Oriente sobre matrícula online
+
+Objeções principais (Converta em valor):
+1. "Não é pra mim":
+- Volte para Problema
+- Explore consequências
+- Destaque diferenciais do curso
+
+2. Dinheiro:
+- Volte para Implicação 
+- Compare custo x benefício
+- Apresente opções de pagamento
+
+3. Tempo:
+- Explore prioridades
+- Demonstre flexibilidade EAD
+- Destaque formato otimizado
+
+Informações essenciais:
+- 100% Online, 432h, 11 meses
+- Início: 09/12/2024
+- R$ 11.233,13 ou 12x R$ 936,09
+- Matrícula simples e 100% online
+
+Regras:
+- Mantenha respostas curtas e objetivas
+- Foque em guiar para matrícula online
+- Esclareça dúvidas no mesmo canal
+- Nunca sugira reuniões desnecessárias
+- Todo contato deve visar conversão para matrícula
+- Pergunte o nome do cliente para criar rapport, mas não seja chato.
+- Faça uma pergunta de cada vez.</pre>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Node Hotmart -->
+            <div class="expandable-section">
+                <div class="expandable-header" onclick="toggleSection('node-hotmart')">
+                    <h3>
+                        ⚡ Node Hotmart para n8n
+                        <span class="toggle-icon">▼</span>
+                    </h3>
+                    <p>Integração completa com Hotmart para n8n - automatize vendas, webhooks e muito mais</p>
+                </div>
+                <div class="expandable-content" id="node-hotmart-content">
+                    <div class="expandable-inner">
+                        <div class="instructions">
+                            <h4>📌 Como instalar e usar no <a href="https://n8n.io/" target="_blank" style="color: var(--accent); text-decoration: underline;">n8n</a>:</h4>
+                            <ul>
+                                <li>Execute: <code style="background: rgba(0,0,0,0.3); padding: 0.2rem 0.4rem; border-radius: 3px;">npm install n8n-nodes-hotmart</code></li>
+                                <li>Reinicie o n8n</li>
+                                <li>Encontre "Hotmart" nos nodes disponíveis</li>
+                                <li>Configure suas credenciais OAuth2</li>
+                                <li>Comece a automatizar!</li>
+                            </ul>
+                        </div>
+
+                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">🚀 Funcionalidades Principais:</h4>
+                        <ul style="color: var(--secondary); margin: 1rem 0; list-style: none; padding-left: 0;">
+                            <li style="padding-left: 20px; position: relative; margin-bottom: 0.5rem;"><span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">•</span><strong>45 endpoints da API</strong> - Cobertura completa</li>
+                            <li style="padding-left: 20px; position: relative; margin-bottom: 0.5rem;"><span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">•</span><strong>Smart Triggers</strong> - Triggers inteligentes por tipo de evento</li>
+                            <li style="padding-left: 20px; position: relative; margin-bottom: 0.5rem;"><span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">•</span><strong>OAuth2 integrado</strong> - Autenticação simplificada</li>
+                            <li style="padding-left: 20px; position: relative; margin-bottom: 0.5rem;"><span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">•</span><strong>Webhooks automáticos</strong> - Receba eventos em tempo real</li>
+                            <li style="padding-left: 20px; position: relative; margin-bottom: 0.5rem;"><span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">•</span><strong>Gestão de afiliados</strong> - Controle completo</li>
+                            <li style="padding-left: 20px; position: relative; margin-bottom: 0.5rem;"><span style="position: absolute; left: 0; color: var(--primary); font-weight: bold;">•</span><strong>Relatórios e analytics</strong> - Dados em tempo real</li>
+                        </ul>
+
+                        <div class="code-block">
+                            <pre>// Exemplo de uso básico - Webhook Sales
+[HotmartSmartTrigger] → Saída: Vendas
+                     → [Slack: Nova venda!]
+                     → [Google Sheets: Registrar]
+                     → [Email: Boas-vindas]</pre>
+                        </div>
+
+                        <div style="text-align: left; margin: 2rem 0;">
+                            <a href="https://www.npmjs.com/package/n8n-nodes-hotmart" target="_blank" style="display: inline-block; background: var(--primary); color: var(--accent); padding: 0.75rem 1.5rem; border-radius: 0; font-weight: 500; text-decoration: none; margin-right: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Ver no NPM</a>
+                            <a href="https://n8n.io/" target="_blank" style="display: inline-block; background: transparent; color: var(--secondary); border: 1px solid var(--secondary); padding: 0.75rem 1.5rem; border-radius: 0; font-weight: 500; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">Site do n8n</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-message">
+                "Qualquer pessoa pode criar automações e usar IA. É só querer!" 🚀
+            </p>
+            <p style="color: #94a3b8; display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+                <img src="hotmart.svg" alt="Hotmart" style="width: 16px; height: 16px;">
+                Por Thales Laray - <a href="https://escoladeautomacao.com.br/" target="_blank" style="color: var(--primary); text-decoration: none;">Escola da Automação</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const endDate = new Date('2025-06-15T23:59:59');
+            const now = new Date();
+            const diff = endDate - now;
+
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Toggle expandable sections
+        function toggleSection(section) {
+            const content = document.getElementById(`${section}-content`);
+            const header = content.previousElementSibling;
+            
+            content.classList.toggle('active');
+            header.classList.toggle('active');
+        }
+
+        // Copy to clipboard
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Copiado!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
