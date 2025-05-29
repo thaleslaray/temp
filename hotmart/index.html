@@ -87,7 +87,7 @@
             padding: 0.5rem 1rem;
             border-radius: 0;
             font-weight: 500;
-            margin-bottom: 1rem;
+            margin: 0;
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -98,11 +98,17 @@
             height: 20px;
         }
 
+        .hero-badge-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
         .hotmart-logo-hero {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
+            width: 40px;
+            height: 40px;
         }
 
         /* Container */
@@ -580,9 +586,11 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <img src="hotmart.svg" alt="Hotmart" class="hotmart-logo-hero">
-            <div class="hero-badge">
-                🚀 Material Exclusivo Hotmart
+            <div class="hero-badge-container">
+                <img src="hotmart.svg" alt="Hotmart" class="hotmart-logo-hero">
+                <div class="hero-badge">
+                    🚀 Material Exclusivo Hotmart
+                </div>
             </div>
             <h1>IA na Prática</h1>
             <p class="subtitle">Transforme sua produtividade e resultados com Inteligência Artificial</p>
