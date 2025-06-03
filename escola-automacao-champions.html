@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola de Automação - Treinamento Profissional</title>
+    <meta name="description" content="Treinamento profissional em automação e I.A. para quem busca crescimento sólido na carreira.">
+    
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Champions Design System */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Champions Colors */
+            --champions-orange: #FF5722;
+            --champions-black: #000000;
+            --champions-dark-gray: #2E2E2E;
+            --champions-gray: #F5F5F5;
+            --champions-white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--champions-gray);
+            color: var(--champions-black);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Info Bar */
+        .info-bar {
+            background: var(--champions-black);
+            color: var(--champions-white);
+            padding: 15px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0;
+            background: var(--champions-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100px;
+            right: -100px;
+            height: 100%;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 50px,
+                rgba(255, 87, 34, 0.05) 50px,
+                rgba(255, 87, 34, 0.05) 100px
+            );
+            z-index: 0;
+        }
+        
+        .hero-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Professional Badge */
+        .professional-badge {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .badge-text {
+            display: inline-block;
+            background: var(--champions-dark-gray);
+            color: var(--champions-white);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Headlines */
+        .main-headline {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
+        }
+        
+        .highlight {
+            background: var(--champions-orange);
+            color: var(--champions-white);
+            padding: 5px 15px;
+            display: inline-block;
+            transform: rotate(-1deg);
+        }
+        
+        .sub-headline {
+            font-size: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-size: 48px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Dark Section Styles */
+        .dark-section {
+            background: var(--champions-black);
+            color: var(--champions-white);
+            position: relative;
+        }
+        
+        .dark-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 87, 34, 0.05) 2px,
+                rgba(255, 87, 34, 0.05) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .dark-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dark-section .section-title {
+            color: var(--champions-white);
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .stat-card {
+            background: var(--champions-white);
+            border: 3px solid var(--champions-black);
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 10px 10px 0 var(--champions-orange);
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 72px;
+            font-weight: 900;
+            color: var(--champions-orange);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Training Program Cards */
+        .program-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .program-card {
+            background: var(--champions-white);
+            border: 3px solid var(--champions-white);
+            display: flex;
+            align-items: stretch;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 200px;
+        }
+        
+        .program-card:hover {
+            transform: translateX(10px);
+            box-shadow: -10px 10px 0 rgba(255, 87, 34, 0.3);
+        }
+        
+        .program-header {
+            background: var(--champions-orange);
+            padding: 40px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 47%;
+            flex-shrink: 0;
+        }
+        
+        .program-header > div {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            width: 100%;
+        }
+        
+        .program-number {
+            font-size: 120px;
+            font-weight: 900;
+            color: var(--champions-white);
+            line-height: 0.8;
+            font-family: 'Arial Black', sans-serif;
+            flex-shrink: 0;
+        }
+        
+        .program-header h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--champions-white);
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            flex: 1;
+        }
+        
+        .program-content {
+            padding: 30px 40px;
+            display: flex;
+            align-items: center;
+            background: var(--champions-white);
+            color: var(--champions-black);
+            flex: 1;
+        }
+        
+        .program-content ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .program-content li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.4;
+            color: var(--champions-black);
+        }
+        
+        .program-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--champions-orange);
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 1;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: var(--champions-black);
+            color: var(--champions-white);
+            padding: 25px 60px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            background: var(--champions-orange);
+        }
+        
+        /* Value Proposition */
+        .value-section {
+            background: var(--champions-white);
+            border: 3px solid var(--champions-black);
+            padding: 60px;
+            margin: 60px 0;
+            position: relative;
+        }
+        
+        .value-section::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            background: var(--champions-orange);
+            z-index: -1;
+        }
+        
+        .value-section h2 {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        
+        .value-section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: var(--champions-white);
+            border: 3px solid var(--champions-black);
+            padding: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 0 var(--champions-orange);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--champions-orange);
+            color: var(--champions-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 900;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-info span {
+            color: var(--champions-orange);
+            font-weight: 600;
+        }
+        
+        .testimonial-quote {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-result {
+            border-top: 2px solid var(--champions-orange);
+            padding-top: 20px;
+            font-weight: 700;
+            color: var(--champions-orange);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--champions-black);
+            color: var(--champions-white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .footer h4 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+        }
+        
+        .disclaimer {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+        
+        /* Section Spacing */
+        section {
+            padding: 100px 0;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .main-headline { font-size: 36px; }
+            .section-title { font-size: 32px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .program-card { 
+                flex-direction: column;
+                height: auto;
+            }
+            .program-header { 
+                width: 100%;
+                padding: 30px;
+                justify-content: center;
+            }
+            .program-header > div {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .program-number {
+                font-size: 80px;
+            }
+            .program-header h3 {
+                font-size: 22px;
+            }
+            .program-content {
+                padding: 30px;
+            }
+            .value-section { padding: 40px 20px; }
+            .value-section::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <div class="container">
+            🎓 Treinamento Profissional: 31/03 a 04/04 • 19h00 • Para Profissionais Sérios
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <!-- Badge Professional -->
+            <div class="professional-badge">
+                <span class="badge-text">🏢 ESCOLA DE AUTOMAÇÃO</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="main-headline">
+                Desenvolva Habilidades em <span class="highlight">Automação e I.A.</span> 
+                Para Se Destacar no Mercado Profissional
+            </h1>
+
+            <!-- Sub-headline -->
+            <p class="sub-headline">
+                <strong>Treinamento técnico para profissionais que buscam crescimento sólido na carreira, 
+                baseado em ferramentas reais e demanda comprovada do mercado.</strong>
+            </p>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">89%</span>
+                    <span class="stat-label">Crescimento na demanda</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1.247</span>
+                    <span class="stat-label">Profissionais treinados</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">4.8/5</span>
+                    <span class="stat-label">Avaliação dos alunos</span>
+                </div>
+            </div>
+
+            <!-- Value Proposition -->
+            <div class="value-section">
+                <h2>Por Que Automação é Uma Habilidade Estratégica?</h2>
+                <p>
+                    Em um mercado cada vez mais competitivo, profissionais que dominam automação 
+                    se tornam indispensáveis para as empresas. Esta não é uma promessa de enriquecimento 
+                    rápido, mas um investimento sólido em sua carreira.
+                </p>
+                <p>
+                    <strong>Nossa abordagem:</strong> Foco em ferramentas práticas, casos reais 
+                    e desenvolvimento de competências que agregam valor imediato ao seu trabalho.
+                </p>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; margin: 60px 0;">
+                <a href="#programa" class="cta-button">
+                    CONHECER O PROGRAMA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="dark-section" id="programa">
+        <div class="container">
+            <h2 class="section-title">Programa de Treinamento</h2>
+            
+            <p style="text-align: center; font-size: 18px; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <strong>5 módulos práticos</strong> com foco em aplicação real no ambiente corporativo. 
+                Sem promessas irreais, apenas conhecimento sólido e aplicável.
+            </p>
+            
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-header">
+                        <div>
+                            <span class="program-number">1</span>
+                            <h3>Fundamentos de Automação</h3>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <ul>
+                            <li>Conceitos fundamentais e aplicações práticas</li>
+                            <li>Identificação de processos automatizáveis</li>
+                            <li>ROI e justificativa de projetos</li>
+                            <li>Ferramentas no-code e low-code</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div>
+                            <span class="program-number">2</span>
+                            <h3>Ferramentas Práticas</h3>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <ul>
+                            <li>Zapier, Make e Power Automate</li>
+                            <li>Integração entre sistemas</li>
+                            <li>Automação de planilhas e relatórios</li>
+                            <li>Fluxos de trabalho eficientes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div>
+                            <span class="program-number">3</span>
+                            <h3>I.A. Aplicada</h3>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <ul>
+                            <li>ChatGPT para produtividade</li>
+                            <li>APIs de I.A. em automações</li>
+                            <li>Análise de dados com I.A.</li>
+                            <li>Chatbots e assistentes virtuais</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div>
+                            <span class="program-number">4</span>
+                            <h3>Implementação Empresarial</h3>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <ul>
+                            <li>Propostas de projeto para gestores</li>
+                            <li>Metodologia de implementação</li>
+                            <li>Gestão de mudanças</li>
+                            <li>Métricas e acompanhamento</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div>
+                            <span class="program-number">5</span>
+                            <h3>Desenvolvimento Profissional</h3>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <ul>
+                            <li>Construção de portfólio técnico</li>
+                            <li>Posicionamento no mercado</li>
+                            <li>Networking e comunidades</li>
+                            <li>Plano de carreira estruturado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Resultados de Quem Participou</h2>
+            
+            <p style="text-align: center; font-size: 18px; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <strong>Transparência total:</strong> Estes são resultados reais de profissionais que 
+                investiram tempo e dedicação no aprendizado. Resultados individuais podem variar.
+            </p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">A</div>
+                        <div class="testimonial-info">
+                            <h4>Ana Carolina</h4>
+                            <span>Analista de Processos → Especialista em Automação</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">
+                        "Após 6 meses aplicando os conhecimentos, consegui automatizar processos que 
+                        economizam 15 horas semanais na minha equipe. Recebi uma promoção e reconhecimento 
+                        como especialista interna em automação."
+                    </p>
+                    <div class="testimonial-result">📈 Resultado: Promoção + 40% aumento salarial</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">M</div>
+                        <div class="testimonial-info">
+                            <h4>Marcos Silva</h4>
+                            <span>Coordenador Administrativo → Gerente de Inovação</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">
+                        "O treinamento me deu as ferramentas práticas para propor e liderar projetos 
+                        de automação na empresa. Hoje sou responsável pela transformação digital 
+                        de toda a área administrativa."
+                    </p>
+                    <div class="testimonial-result">📈 Resultado: Nova posição + equipe de 8 pessoas</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">R</div>
+                        <div class="testimonial-info">
+                            <h4>Roberta Lima</h4>
+                            <span>Assistente Financeiro → Analista de Automação</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">
+                        "Comecei como assistente e, com os conhecimentos adquiridos, me tornei 
+                        a pessoa de referência para automação na empresa. Minha carreira teve 
+                        um direcionamento muito mais estratégico."
+                    </p>
+                    <div class="testimonial-result">📈 Resultado: 2 promoções em 18 meses</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="dark-section">
+        <div class="container">
+            <h2 class="section-title">Informações do Treinamento</h2>
+            
+            <div class="stats-grid" style="max-width: 800px; margin: 0 auto 60px;">
+                <div class="stat-card" style="background: var(--champions-dark-gray); color: var(--champions-white);">
+                    <span class="stat-number">📅</span>
+                    <span class="stat-label">31 Mar - 04 Abr</span>
+                </div>
+                <div class="stat-card" style="background: var(--champions-dark-gray); color: var(--champions-white);">
+                    <span class="stat-number">🕐</span>
+                    <span class="stat-label">19h00 ao vivo</span>
+                </div>
+                <div class="stat-card" style="background: var(--champions-dark-gray); color: var(--champions-white);">
+                    <span class="stat-number">💰</span>
+                    <span class="stat-label">Investimento: R$97</span>
+                </div>
+                <div class="stat-card" style="background: var(--champions-dark-gray); color: var(--champions-white);">
+                    <span class="stat-number">📜</span>
+                    <span class="stat-label">Certificado incluso</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#" class="cta-button" style="background: var(--champions-white); color: var(--champions-black);">
+                    INSCREVER-SE NO TREINAMENTO
+                </a>
+                
+                <p style="margin-top: 30px; font-size: 16px; opacity: 0.8;">
+                    <strong>Política de reembolso:</strong> 7 dias de garantia incondicional
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h4>Escola de Automação</h4>
+            <p>CNPJ: 49.853.639/0001-09</p>
+            <p>Suporte: suporte@escoladeautomacao.com.br</p>
+            
+            <div class="disclaimer">
+                <p>© 2024 Escola de Automação. Todos os direitos reservados.</p>
+                <p>
+                    Este é um programa de treinamento profissional. Os resultados dependem do 
+                    comprometimento individual e aplicação dos conhecimentos. Não garantimos 
+                    resultados específicos, mas fornecemos as ferramentas e conhecimentos 
+                    necessários para o desenvolvimento profissional em automação.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
